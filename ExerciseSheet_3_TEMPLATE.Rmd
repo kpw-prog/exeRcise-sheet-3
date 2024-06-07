@@ -76,10 +76,13 @@ a)  Create a new repository on GitHub in your account named
     `exeRcise-sheet-3`. Make sure you create a **public repository** so
     we are able to see it for grading. Add the link to the repository
     below:
-b)  Push your code to this new repository by copying and executing the
+
+<https://github.com/kpw-prog/exeRcise-sheet-3.git>
+
+a)  Push your code to this new repository by copying and executing the
     snippet on github listed under
     `…or push an existing repository from the command line`.
-c)  Regularly push your latest changes to GitHub again and especially do
+b)  Regularly push your latest changes to GitHub again and especially do
     so when you are finished with this sheet.
 
 ## Exercise 3: Baby-Names in Munich (3.5 Points)
@@ -92,6 +95,9 @@ Link: <https://opendata.muenchen.de/dataset/vornamen-von-neugeborenen>
 
 a)  Download the data for both years and track it in git. For small
     datasets like these adding them to git is not a problem.
+
+    I changed the name of the dataset 2022 into
+    vornamen-muenchen-2022.csv
 
 b)  Load the data for both years into R. Check the type of the count
     variable ("Anzahl") and look into the data to determine why it is
