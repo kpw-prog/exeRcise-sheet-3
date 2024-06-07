@@ -197,7 +197,12 @@ d)  Come up with a (research) question you want to answer with the data
     and briefly explain why you believe this is an interesting question
     within one sentence. It should be a question that can be answered
     with the dataset and using R.
+
+    Question: How did the obesity rate in Africa change over the last
+    decades (during which there was an economic upturn)?
+
 e)  Use R to answer your chosen question.
+
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
