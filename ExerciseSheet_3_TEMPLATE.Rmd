@@ -105,15 +105,32 @@ b)  Load the data for both years into R. Check the type of the count
     some of the counts are inaccurate because of this. Explain your
     solution and the repercussions.
 
-c)  Calculate the total number of babies born in Munich in 2022
+I changed the cells that have "4 oder weniger" to 4, which makes it less
+accurate because now it only includes 4 and not less than 4, but at
+least now every cell in "Anzahl" is numeric.
+
+```{r}
+# load data
+vornamen_2022 <- read_csv("C:/Users/Thinkpad1/Codebase/Statistik/AB3/2024-exeRcise-sheet-3/vornamen-muenchen-2022.csv")
+vornamen_2023 <- read_csv("C:/Users/Thinkpad1/Codebase/Statistik/AB3/2024-exeRcise-sheet-3/vornamen-muenchen-2023.csv")
+
+
+# Replace "4 oder weniger" with 4 in the "Anzahl" column of vornamen_2022
+vornamen_2022$Anzahl <- ifelse(vornamen_2022$Anzahl == "4 oder weniger", 4, vornamen_2022$Anzahl)
+
+# Replace "4 oder weniger" with 4 in the "Anzahl" column of vornamen_2023
+vornamen_2023$Anzahl <- ifelse(vornamen_2023$Anzahl == "4 oder weniger", 4, vornamen_2023$Anzahl)
+```
+
+a)  Calculate the total number of babies born in Munich in 2022
     and 2023. Which year had the bigger baby-boom?
 
-d)  Add a new column `year` to both datasets which holds the correct
+b)  Add a new column `year` to both datasets which holds the correct
     year for each.
 
-e)  Combine both datasets into one using `bind_rows()`.
+c)  Combine both datasets into one using `bind_rows()`.
 
-f)  Combine the counts for same names to determine the most popular
+d)  Combine the counts for same names to determine the most popular
     names across both years. Print out the top 10 names in a nicely
     formatted table for both years. Include a table caption.
 
