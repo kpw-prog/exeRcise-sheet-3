@@ -203,9 +203,50 @@ d)  Come up with a (research) question you want to answer with the data
 
 e)  Use R to answer your chosen question.
 
+    As seen in the graph below, obesity ratres in Africa actually
+    increased since around 1975, maybe because of cheaper access to
+    industrialized and unhelathy food.
+
+    ```{r}
+    # Load necessary libraries
+    library(readr)
+    library(dplyr)
+    library(ggplot2)
+
+    obesity_data <- read_csv("C:/Users/Thinkpad1/Codebase/Statistik/AB3/2024-exeRcise-sheet-3/Adult obesity by region - FAO (2017).csv")
+
+    # Filter data for Africa
+    obesity_africa <- obesity_data %>%
+      filter(Entity == "Africa")
+
+    # Convert Year to numeric
+    obesity_africa$Year <- as.numeric(obesity_africa$Year)
+
+
+    # Plot obesity rates over time in Africa
+    ggplot(data = obesity_africa, aes(x = Year, y = `Prevalence of obesity in adults (18+ years old) (FAO (2017))`)) +
+      geom_line() +
+      labs(title = "Obesity Rate Over Time in Africa",
+           x = "Year",
+           y = "Obesity Rate") +
+      theme_minimal()
+    ```
+
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
+
+    ```{r}
+    # Plot obesity rates over time in Africa
+    ggplot(data = obesity_africa, aes(x = Year, y = `Prevalence of obesity in adults (18+ years old) (FAO (2017))`)) +
+      geom_line(color = "blue") +
+      geom_smooth(method = "loess", se = FALSE, color = "red") +
+      labs(title = "Trend in Obesity Rates Over Time in Africa",
+           x = "Year",
+           y = "Obesity Rate",
+           caption = "Data Source: Adult obesity by region - FAO (2017)") +
+      theme_minimal()
+    ```
 
 ## Final Note
 
