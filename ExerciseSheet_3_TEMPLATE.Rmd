@@ -140,11 +140,42 @@ total_babies_2023
 d\. Add a new column `year` to both datasets which holds the correct
 year for each.
 
+```{r}
+# Add new column "year" to vornamen_2022 with value 2022
+vornamen_2022$year <- 2022
+
+# Add new column "year" to vornamen_2023 with value 2023
+vornamen_2023$year <- 2023
+```
+
 e\. Combine both datasets into one using `bind_rows()`.
+
+```{r}
+library(dplyr)
+combined_dataset <- bind_rows(vornamen_2022, vornamen_2023)
+```
 
 f\. Combine the counts for same names to determine the most popular
 names across both years. Print out the top 10 names in a nicely
 formatted table for both years. Include a table caption.
+
+```{r}
+
+# Aggregate counts for each name across both years
+aggregated_counts <- combined_dataset %>%
+  group_by(Vorname) %>%
+  summarise(total_count = sum(Anzahl))
+
+# Sort aggregated counts to find the most popular names
+top_10_names <- aggregated_counts %>%
+  arrange(desc(total_count)) %>%
+  head(10)
+
+library(knitr)
+
+# Print out the top 10 names
+kable(top_10_names, caption = "Top 10 baby names in munich, across 2022 and 2023")
+```
 
 ## Exercise 4: Open Analysis (4 points)
 
